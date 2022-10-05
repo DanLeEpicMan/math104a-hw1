@@ -47,4 +47,23 @@ while value_of_q != 4:
     counter+=1
     value_of_q = q(1/counter)
 
-print(f'Necessary h for q(h) = 4: 1/{counter}')
+print(f'Necessary h for q(h) ~= 4: 1/{counter}')
+
+def approx_error(h: float):
+    '''
+    Calculating the approximate error using the method outlined.
+    '''
+    N=int(1/h)
+    T_1 = generate_T(a=0, b=1, N=N)
+    T_2 = generate_T(a=0, b=1, N=2*N)
+    return (4/3) * (T_2(f) - T_1(f))
+
+error = approx_error(1/counter)
+
+print(f'Approximate Error: {error}')
+
+T_1 = generate_T(a=0, b=1, N=counter)
+
+print(f'Value for S_h: {T_1(f) + error}')
+
+
