@@ -1,7 +1,12 @@
+'''
+Daniel Naylor
+Last Modified: 10/04/2022
+'''
+
 import math
 
 
-def f(x: float):
+def f(x: float) -> float:
     '''
     This denotes out function f that takes any real number x as input.
     '''
@@ -31,6 +36,8 @@ def abs(x: float) -> float:
     '''
     return x if x>0 else -x
 
+# Compute the true value of the integral, then compare it with approximations
+# with different h values.
 true_value = (math.e - 1)/2
 T_10 = generate_T(a=0, b=1, N=10)
 T_20 = generate_T(a=0, b=1, N=20)

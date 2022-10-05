@@ -1,7 +1,12 @@
+'''
+Daniel Naylor
+Last Modified: 10/04/2022
+'''
+
 import math
 
 
-def f(x: float):
+def f(x: float) -> float:
     '''
     This denotes out function f that takes any real number x as input.
     '''
@@ -31,7 +36,7 @@ def abs(x: float) -> float:
     '''
     return x if x>0 else -x
 
-def q(h: float):
+def q(h: float) -> float:
     '''
     The approximator function given in Q4.
     '''
@@ -41,6 +46,7 @@ def q(h: float):
     T_4 = generate_T(a=0, b=1, N=4*N)
     return (T_2(f) - T_1(f))/(T_4(f) - T_2(f))
 
+# Computer appropriate h such that q(h) ~= 4
 value_of_q = 0
 counter = 0
 while value_of_q != 4:
@@ -49,6 +55,7 @@ while value_of_q != 4:
 
 print(f'Necessary h for q(h) ~= 4: 1/{counter}')
 
+# Error approximation
 def approx_error(h: float):
     '''
     Calculating the approximate error using the method outlined.
@@ -62,6 +69,7 @@ error = approx_error(1/counter)
 
 print(f'Approximate Error: {error}')
 
+# Print S_h
 T_1 = generate_T(a=0, b=1, N=counter)
 
 print(f'Value for S_h: {T_1(f) + error}')
